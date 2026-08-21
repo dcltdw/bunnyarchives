@@ -6,7 +6,7 @@ Architecture is out of scope. This document tracks discovered requirements as th
 
 ## Cross-Cutting Principles
 
-- **One deployment serves one campaign.** Bunnyarchives is not multi-tenant; "generic" means another campaign would run its own deployment.
+- **One deployment serves one campaign.** Bunnyarchives is not multi-tenant; another campaign adopting it would run its own deployment.
 - **Mistakes are reversible.** Every operation should be reversible by an appropriately-permissioned person. Named exceptions:
   - Documents are never revoked — supersession only (§4).
   - Under first-one-in-wins conflict handling, a refused stale edit is never applied — though it is preserved as a draft (§12, §18).
@@ -25,7 +25,7 @@ Architecture is out of scope. This document tracks discovered requirements as th
 
 ## 2. Events
 
-- Held ~4x/year by default — **frequency is configurable**, default is 4. "Saturday only" is **descriptive of current practice only** — not a system-enforced constraint.
+- Held ~4x/year by default — **frequency is configurable**, default is 4. Events are currently single-day Saturdays in practice, but **the system must not enforce any day-of-week constraint**.
 - Seam for multi-day events (3-day, 5-day, etc.) exists from the start, even though events are 1-day for now.
 - **Multi-day events affect the entire event model**, not just scheduling — including:
   - Check-in can happen at any time during the event (e.g., a player may check in on Day 2).
@@ -201,7 +201,7 @@ Architecture is out of scope. This document tracks discovered requirements as th
 
 ## 17. Cross-Event Plot Continuity
 
-- Staff working on **any** event of a plot (Event 3 was just an illustrative example, not special-cased) should easily see **all prior events'** encounters for that plot + associated player/staff PEL responses, to inform planning.
+- Staff working on **any** event of a plot should easily see **all prior events'** encounters for that plot + associated player/staff PEL responses, to inform planning.
 - **Staff can move/route PEL info onto plots**; such moves carry applied-by metadata. (This is the manual mechanism the deferred LLM assistance would feed suggestions into.)
 
 ## 18. Offline Support
