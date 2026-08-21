@@ -10,3 +10,10 @@ record; the release PR renames that section to the version it ships and
 starts a fresh one.
 
 ## [Unreleased]
+
+### Added
+
+- `docs/requirements/incoming-requirements.md`: the running requirements
+  doc, imported as captured and then updated with the first round of
+  clarifications (tags-first access model, capacity/waitlists, refunds,
+  character approval and advancement, data deletion, offline scope).
